@@ -125,10 +125,10 @@ Folgende User Stories haben wir erstellt in Anbetracht unserer Idee inklusive Ak
 
 ### Arbeitsjournal
 
-| **Datum**  | **Aufwand** | **Tätigkeiten**                                                                                                    | **Schwierigkeiten/Reflexion**                                                                                |
-| ---------- | ----------- | ------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------ |
-| 22.11.2024 | 1 Stunde    | Erstellung von Testfällen für Frontend und Backend. Überprüfung der Abdeckung der Testfälle mit den Anforderungen. | Einige Tests waren schwieriger umzusetzen, da die Mock-Daten nicht korrekt initialisiert wurden.             |
-| 03.11.2024 | 45 Minuten  | Basisstruktur mit Spring Boot Initializr erstellt. Entitäten mit Attributen sowie Getter und Setter ergänzt.       | Es lief reibungslos, allerdings habe ich gemerkt, dass einige Attribute genauer dokumentiert werden könnten. |
+| **Datum**  | **Aufwand** | **Tätigkeiten** | **Schwierigkeiten/Reflexion** |
+| ---------- | ----------- | --------------- | ----------------------------- |
+| 22.11.2024 | 1 Stunde    | x               | x                             |
+| 22.11.2024 | 45 Minuten  | x               | x                             |
 
 ## Hilfestellungen
 
