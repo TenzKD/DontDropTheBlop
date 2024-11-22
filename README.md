@@ -127,9 +127,10 @@ Folgende User Stories haben wir erstellt in Anbetracht unserer Idee inklusive Ak
 
 | **Datum**  | **Aufwand** | **Tätigkeiten** | **Schwierigkeiten/Reflexion** |
 | ---------- | ----------- | --------------- | ----------------------------- |
-| 22.11.2024 | 1 Stunde    | x               | x                             |
-| 22.11.2024 | 45 Minuten  | x               | x                             |
-
+| 22.11.2024 | 1 Stunde    |  Frontend mit dem Spiel gefüttert              | übertragung war erfolgreich                             |
+| 22.11.2024 | 3 Stunden  | Frontend CSS angepasst               | müssam aber lehrreich                             |
+| 22.11.2024 | 3 Stunden  | Frontend mit Backand verbunden               | Probleme mit Dom und axios files                             |
+| 22.11.2024 | 1 Stunden  | Im Frontend Regiestrierung und Login eingerichtet              | holperig aber erfolgreich                             |
 ## Hilfestellungen
 
 - Struktur des Codes fürs Backend vom Unterricht Modul 223 - Multi User Applikation
