@@ -17,7 +17,6 @@ function App() {
   const [showLogin, setShowLogin] = useState(true);
 
   const handleShowLogin = () => {
-    setIsAuthenticated(true);
     setShowLogin(true);
   };
 
@@ -50,7 +49,7 @@ function App() {
               </div>
               {showLogin ? (
                 <div id="loginForm">
-                  <Login />
+                  <Login onLoginSuccess={handleLogin} />
                 </div>
               ) : (
                 <div id="registerForm">
