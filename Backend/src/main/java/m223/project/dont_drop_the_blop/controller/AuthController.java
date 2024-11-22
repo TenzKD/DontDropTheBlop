@@ -107,29 +107,4 @@ public class AuthController {
     return ResponseEntity.ok("User registered successfully!");
   }
 
-  @PreAuthorize("hasRole('ROLE_ADMIN')")
-  @PutMapping("/block/{username}")
-  @Transactional
-  public ResponseEntity<?> blockUser(@PathVariable String username){
-    //FETCH User by name
-    User user = userRepository.findByUsername(username).orElseThrow(() -> new RuntimeException("Error: User not found."));
-
-    //Block user and reset score
-    user.setBlocked(true);
-    user.setScore(0);
-
-    //Save the updated user
-    userRepository.save(user);
-
-    //return success response
-    return ResponseEntity.ok("User blocked successfully.");
-  }
-
-  @PreAuthorize("hasRole('ROLE_ADMIN')")
-  @GetMapping("/users")
-  public ResponseEntity<List<User>> getAllUsers() {
-        List<User> users = userRepository.findAll();
-        return ResponseEntity.ok(users);
-    }
-
 }
