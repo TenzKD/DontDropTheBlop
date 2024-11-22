@@ -13,7 +13,7 @@ import Highscore from './pages/Highscore';
 import img from './assets/DontDropTheBlop.png';
 
 function App() {
-  const [isAuthenticated, setIsAuthenticated] = useState(true);
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [showLogin, setShowLogin] = useState(true);
 
   const handleShowLogin = () => {
