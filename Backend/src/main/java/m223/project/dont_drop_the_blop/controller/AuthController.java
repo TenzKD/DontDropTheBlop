@@ -1,0 +1,135 @@
+package m223.project.dont_drop_the_blop.controller;
+
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
+import java.util.stream.Collectors;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
+import org.springframework.security.authentication.AuthenticationManager;
+import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+import jakarta.validation.Valid;
+
+import m223.project.dont_drop_the_blop.config.JwtUtils;
+import m223.project.dont_drop_the_blop.config.UserDetailsImpl;
+import m223.project.dont_drop_the_blop.dto.JwtResponse;
+import m223.project.dont_drop_the_blop.dto.LoginRequest;
+import m223.project.dont_drop_the_blop.dto.SignupRequest;
+import m223.project.dont_drop_the_blop.model.ERole;
+import m223.project.dont_drop_the_blop.model.Role;
+import m223.project.dont_drop_the_blop.model.User;
+import m223.project.dont_drop_the_blop.repositories.RoleRepository;
+import m223.project.dont_drop_the_blop.repositories.UserRepository;
+import org.springframework.transaction.annotation.Transactional;
+
+@CrossOrigin(origins = "*", maxAge = 3600)
+@RestController
+@RequestMapping("/api/auth")
+public class AuthController {
+  @Autowired
+  AuthenticationManager authenticationManager;
+
+  @Autowired
+  UserRepository userRepository;
+
+  @Autowired
+  RoleRepository roleRepository;
+
+  @Autowired
+  PasswordEncoder encoder;
+
+  @Autowired
+  JwtUtils jwtUtils;
+
+  @PostMapping("/login")
+  public ResponseEntity<?> authenticateUser(@Valid @RequestBody LoginRequest loginRequest) {
+
+    //Check if User is blocked
+    User user = userRepository.findByUsername(loginRequest.getUsername()).orElseThrow(() -> new RuntimeException("Error: User not found"));
+
+    if(user.isBlocked()) {
+      return ResponseEntity.badRequest().body("Error: User is blocked and cannot log in.");
+    }
+
+    Authentication authentication = authenticationManager.authenticate(
+        new UsernamePasswordAuthenticationToken(loginRequest.getUsername(), loginRequest.getPassword()));
+
+    SecurityContextHolder.getContext().setAuthentication(authentication);
+    String jwt = jwtUtils.generateJwtToken(authentication);
+
+    UserDetailsImpl userDetails = (UserDetailsImpl) authentication.getPrincipal();
+    List<String> roles = userDetails.getAuthorities().stream()
+        .map(item -> item.getAuthority())
+        .collect(Collectors.toList());
+
+    return ResponseEntity.ok(new JwtResponse(jwt,
+        userDetails.getId(),
+        userDetails.getUsername(),
+        userDetails.getScore(),
+        roles));
+  }
+
+  @PostMapping("/signup")
+  public ResponseEntity<?> registerUser(@Valid @RequestBody SignupRequest signUpRequest) {
+    if (userRepository.existsByUsername(signUpRequest.getUsername())) {
+      return ResponseEntity
+          .badRequest()
+          .body("Error: Username is already taken!");
+    }
+
+    // Create new user's account
+    User user = new User(signUpRequest.getUsername(), encoder.encode(signUpRequest.getPassword()),0);
+    user.setBlocked(false);
+
+
+    //ASSIGN DEFAULT ROLE ROLE_USER
+    Role userRole = roleRepository.findByName(ERole.ROLE_USER)
+        .orElseThrow(() -> new RuntimeException("Error: Role is not found."));
+    Set<Role> roles = new HashSet<>();
+    roles.add(userRole);
+
+    user.setRoles(roles);
+    userRepository.save(user);
+
+    return ResponseEntity.ok("User registered successfully!");
+  }
+
+  @PreAuthorize("hasRole('ROLE_ADMIN')")
+  @PutMapping("/block/{username}")
+  @Transactional
+  public ResponseEntity<?> blockUser(@PathVariable String username){
+    //FETCH User by name
+    User user = userRepository.findByUsername(username).orElseThrow(() -> new RuntimeException("Error: User not found."));
+
+    //Block user and reset score
+    user.setBlocked(true);
+    user.setScore(0);
+
+    //Save the updated user
+    userRepository.save(user);
+
+    //return success response
+    return ResponseEntity.ok("User blocked successfully.");
+  }
+
+  @PreAuthorize("hasRole('ROLE_ADMIN')")
+  @GetMapping("/users")
+  public ResponseEntity<List<User>> getAllUsers() {
+        List<User> users = userRepository.findAll();
+        return ResponseEntity.ok(users);
+    }
+
+}

@@ -3,6 +3,7 @@ package m223.project.dont_drop_the_blop.model;
 import java.util.HashSet;
 import java.util.Set;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
@@ -11,15 +12,15 @@ import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.JoinTable;
 import jakarta.persistence.ManyToMany;
-import jakarta.persistence.Table;
 import jakarta.validation.constraints.NotBlank;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @Entity
-@Table(name = "User")
 @Setter
 @Getter
+@NoArgsConstructor
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -27,17 +28,17 @@ public class User {
     @NotBlank
     private String username;
     @NotBlank
-    private String email;
-    @NotBlank
     private String password;
 
-    public User() {
-    }
+    private int score;
 
-    public User(String name, String email, String password) {
+    @Column(nullable = false)
+    private boolean isBlocked;
+
+    public User(String name, String password, int score) {
         this.username = name;
-        this.email = email;
         this.password = password;
+        this.score = score;
     }
 
     @ManyToMany(fetch = FetchType.LAZY) // das ist der spannende ORM Teil: automatisches Mapping von M-N Beziehungen
