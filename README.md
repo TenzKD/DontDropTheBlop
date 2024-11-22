@@ -125,13 +125,18 @@ Folgende User Stories haben wir erstellt in Anbetracht unserer Idee inklusive Ak
 
 ### Arbeitsjournal
 
-| **Datum**  | **Aufwand** | **Tätigkeiten** | **Schwierigkeiten/Reflexion** |
-| ---------- | ----------- | --------------- | ----------------------------- |
-| 22.11.2024 | 1 Stunde    |  Frontend mit dem Spiel gefüttert              | übertragung war erfolgreich                             |
-| 22.11.2024 | 3 Stunden  | Frontend CSS angepasst               | müssam aber lehrreich                             |
-| 22.11.2024 | 3 Stunden  | Frontend mit Backand verbunden               | Probleme mit Dom und axios files                             |
-| 22.11.2024 | 1 Stunden  | Im Frontend Regiestrierung und Login eingerichtet              | holperig aber erfolgreich                             |
+| **Datum**  | **Aufwand** | **Tätigkeiten**                                                  | **Schwierigkeiten/Reflexion**                                                                                                                                                                                                   | **Author** |
+| ---------- | ----------- | ---------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------- |
+| 22.11.2024 | 1 h         | Frontend mit dem Spiel gefüttert                                 | übertragung war erfolgreich                                                                                                                                                                                                     | Patrik     |
+| 22.11.2024 | 3 h         | Frontend CSS angepasst                                           | müssam aber lehrreich                                                                                                                                                                                                           | Patrik     |
+| 22.11.2024 | 3 h         | Frontend mit Backand verbunden                                   | Probleme mit Dom und axios files                                                                                                                                                                                                | Patrik     |
+| 22.11.2024 | 1 h         | Im Frontend Regiestrierung und Login eingerichtet                | holperig aber erfolgreich                                                                                                                                                                                                       | Patrik     |
+| 22.11.2024 | 2 h         | Backend vom vom letzten Unterrichtstag 21.11.24 hinzugefügt.     | Da ich Probleme hatte mit dem Einfügen, habe ich es schlussendlich ein File nach dem andern hinzugefügt und geprüft ob es auch funktioniert.                                                                                    | Kunga      |
+| 22.11.2024 | 2 h         | Die Struktur des Backends angepasst auf unser Projekt            | Ich hatte am Schluss der Lektion die Erkenntniss, dass es besser wäre den Score als eigenes Entity zu erstellen anstatt als Attribut von der Klasse User.                                                                       | Kunga      |
+| 22.11.2024 | 4 h         | Endpunkte erstellt um alle User anzuzeigen sowie User zu blocken | Falls genügend Zeit da wäre, könnte man die Funktion als Button hinzufügen welche nur als sichtbar für den Admin ist. Ausserdem sollte ich die Funktion des blocken anpassen, falls es bereits blockiert ist, dass es entblockt | Kunga      |
+
 ## Hilfestellungen
 
 - Struktur des Codes fürs Backend vom Unterricht Modul 223 - Multi User Applikation
 - [Nutzung von ChatGPT für Programmierunterstützung](https://chatgpt.com/)
+- Hilfestellungen durch den Dozenten in diversen Punkten
