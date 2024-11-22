@@ -17,7 +17,7 @@ function Login({ onLoginSuccess }) {
       const result = await AuthService.login(entries.username, entries.password);
       if (result && result.token) {
         console.log('Login erfolgreich:', result);
-        onLoginSuccess(); // Aktualisiere den Zustand auf eingeloggt (isAuthenticated auf true setzen)
+        onLoginSuccess(); 
       }
     } catch (error) {
       console.error('Fehler beim Login:', error);

@@ -9,7 +9,6 @@ function gameOver() {
   gameRunning = false;
   resetButton.style.display = "inline-block";
 
-  // Speichere den Score auf dem Server nur, wenn er höher ist als der aktuell gespeicherte Score
   const currentUser = AuthService.getCurrentUser();
   if (currentUser && currentUser.username) {
     const savedScore = currentUser.score || 0;
