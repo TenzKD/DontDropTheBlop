@@ -1,0 +1,132 @@
+body {
+  margin: 0;
+  overflow: hidden;
+  background: #C6C6C6; /* Provisorische Hintergrundfarbe */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  font-family: Arial, sans-serif;
+}
+.logo-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Zentriere Bild und `authContainer` horizontal */
+}
+
+.player-image {
+  margin-bottom: 20px; /* Abstand zwischen Bild und `authContainer` */
+
+}
+
+#authContainer {
+  background: #131123; /* Hintergrundfarbe für das Login/Register Fenster */
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.2);
+  color: #EEF0F2; /* Helle Textfarbe */
+  width: 300px;
+  text-align: center;
+}
+
+#buttonContainer {
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 20px;
+}
+
+#buttonContainer button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  background-color: transparent;
+  color: #717171; /* Standardfarbe für nicht ausgewählte Buttons */
+  cursor: pointer;
+  flex: 1;
+  margin: 0 5px;
+  transition: background-color 0.3s, color 0.3s;
+  font-weight: bold;
+}
+
+#buttonContainer button.active {
+  color: #EEF0F2; /* Farbe für den aktiven Button */
+  background-color: #19AFD1; /* Hintergrundfarbe für den aktiven Button */
+}
+
+#buttonContainer button:hover {
+  color: #EEF0F2; /* Helle Farbe beim Hover */
+}
+
+input[type="text"], input[type="password"] {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: none;
+  border-radius: 5px;
+  background: #2A2842; /* Hintergrundfarbe für die Eingabefelder */
+  color: #EEF0F2;
+}
+
+button {
+  width: 100%;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  background-color: #19AFD1; /* Blau für den allgemeinen Button */
+  color: #ffffff;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #0077b6; /* Dunkleres Blau bei Hover */
+}
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+}
+
+.auth-container {
+  background: #2A2842; /* Dunkler Hintergrund wie beim Login */
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.2);
+  color: #EEF0F2; /* Helle Textfarbe */
+  width: 300px;
+  text-align: center;
+
+}
+
+.button {
+  width: 100%;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  background-color: #19AFD1; /* Button-Farbe wie im Login-Formular */
+  color: #ffffff;
+  font-size: 16px;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+.button:hover {
+  background-color: #0077b6; /* Dunkleres Blau bei Hover */
+}
+
+div{
+  margin: auto;
+}
+
+.game-container {
+  text-align: center;
+  background-color: #1b1b1b;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  width: 60%;              /* Breite anpassen (z.B. 80% des Viewports oder eine feste Pixelanzahl) */
+  max-width: 440px;        /* Maximale Breite festlegen, um sicherzustellen, dass der Container nicht zu breit wird */
+  top: 100px;
+  position: fixed;
+}
