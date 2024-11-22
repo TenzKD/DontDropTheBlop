@@ -17,6 +17,7 @@ function App() {
   const [showLogin, setShowLogin] = useState(true);
 
   const handleShowLogin = () => {
+    setIsAuthenticated(true);
     setShowLogin(true);
   };
 
@@ -25,7 +26,6 @@ function App() {
   };
 
   const handleLogin = () => {
-    // Hier könnte z.B. die Authentifizierungslogik von AuthService aufgerufen werden
     setIsAuthenticated(true);
   };
 
