@@ -7,22 +7,18 @@ import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import jakarta.validation.Valid;
 
+import jakarta.validation.Valid;
 import m223.project.dont_drop_the_blop.config.JwtUtils;
 import m223.project.dont_drop_the_blop.config.UserDetailsImpl;
 import m223.project.dont_drop_the_blop.dto.JwtResponse;
@@ -33,7 +29,6 @@ import m223.project.dont_drop_the_blop.model.Role;
 import m223.project.dont_drop_the_blop.model.User;
 import m223.project.dont_drop_the_blop.repositories.RoleRepository;
 import m223.project.dont_drop_the_blop.repositories.UserRepository;
-import org.springframework.transaction.annotation.Transactional;
 
 @CrossOrigin(origins = "*", maxAge = 3600)
 @RestController
@@ -106,5 +101,4 @@ public class AuthController {
 
     return ResponseEntity.ok("User registered successfully!");
   }
-
 }

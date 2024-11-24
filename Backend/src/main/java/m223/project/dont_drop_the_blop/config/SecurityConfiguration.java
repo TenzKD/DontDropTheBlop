@@ -3,7 +3,6 @@ package m223.project.dont_drop_the_blop.config;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.http.HttpMethod;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.dao.DaoAuthenticationProvider;
 import org.springframework.security.config.Customizer;
@@ -25,8 +24,8 @@ public class SecurityConfiguration {
   @Autowired
   private AuthenticationEntryPoint unauthorizedHandler;
 
-  private static final String[] EVERYONE = { "/public", "/", "/api/auth/*" };
-  private final static String[] SECURE = { "/private/*", "/items" };
+  private static final String[] EVERYONE = { "/", "/api/auth/*" };
+  private final static String[] SECURE = { "/private/*" };
   private final static String[] ROLES = { "ADMIN" };
 
   @Bean
