@@ -24,8 +24,8 @@ public class SecurityConfiguration {
   @Autowired
   private AuthenticationEntryPoint unauthorizedHandler;
 
-  private static final String[] EVERYONE = { "/", "/api/auth/*" };
-  private final static String[] SECURE = { "/private/*" };
+  private static final String[] EVERYONE = { "/", "/api/auth/*", "/api/scores/top10" };
+  private final static String[] SECURE = { "/private/*", "/api/scores/clear" };
   private final static String[] ROLES = { "ADMIN" };
 
   @Bean

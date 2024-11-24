@@ -1,6 +1,8 @@
 package m223.project.dont_drop_the_blop.service;
 
 import java.util.List;
+import java.util.Set;
+import java.util.stream.Collectors;
 
 import org.springframework.stereotype.Service;
 
@@ -33,6 +35,24 @@ public class ScoreService {
             user.setHighScore(scoreValue);
             userRepository.save(user);
         }
+
+    }
+
+    @Transactional
+    public void clearUserScores(Long userId) {
+        // Fetch the user from the repository
+        User user = userRepository.findById(userId)
+                .orElseThrow(() -> new IllegalArgumentException("User not found"));
+
+        // Clear the scores both in the database and from the user entity
+        scoreRepository.deleteAll(user.getScores());
+        user.getScores().clear();
+
+        // Reset the high score to zero
+        user.setHighScore(0);
+
+        // Save the user to persist the changes
+        userRepository.save(user);
     }
 
     public List<User> getTop10Players() {
