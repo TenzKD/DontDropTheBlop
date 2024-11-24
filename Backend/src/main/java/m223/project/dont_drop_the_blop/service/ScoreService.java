@@ -15,27 +15,27 @@ public class ScoreService {
     private final UserRepository userRepository;
     private final ScoreRepository scoreRepository;
 
-    public ScoreService(UserRepository userRepository, ScoreRepository scoreRepository){
+    public ScoreService(UserRepository userRepository, ScoreRepository scoreRepository) {
         this.userRepository = userRepository;
         this.scoreRepository = scoreRepository;
     }
 
     @Transactional
-    public void saveScore(Long userId, Integer scoreValue){
+    public void saveScore(Long userId, Integer scoreValue) {
         User user = userRepository.findById(userId).orElseThrow(() -> new IllegalArgumentException("User not found"));
-    
-    Score score = new Score();
-    score.setValue(scoreValue);
-    score.setUser(user);
-    scoreRepository.save(score);
 
-    if(user.getHighScore() == null || scoreValue > user.getHighScore()){
-        user.setHighScore(scoreValue);
-        userRepository.save(user);
+        Score score = new Score();
+        score.setValue(scoreValue);
+        score.setUser(user);
+        scoreRepository.save(score);
+
+        if (user.getHighScore() == 0 || scoreValue > user.getHighScore()) {
+            user.setHighScore(scoreValue);
+            userRepository.save(user);
+        }
     }
-}
 
-public List<User> getTop10Players() {
-    return userRepository.findTop10ByHighScoreOrderByHighScoreDesc();
-}
+    public List<User> getTop10Players() {
+        return userRepository.findTop10ByOrderByHighScoreDesc();
+    }
 }

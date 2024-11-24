@@ -3,6 +3,8 @@ package m223.project.dont_drop_the_blop.model;
 import java.util.HashSet;
 import java.util.Set;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -35,11 +37,12 @@ public class User {
     @Column(nullable = false)
     private boolean isBlocked;
 
+    @JsonManagedReference
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
     private Set<Score> scores = new HashSet<>();
 
     @Column(name = "high_score", nullable = false)
-    private int highScore = 0; //Highest Score of the user
+    private int highScore = 0; // Highest Score of the user
 
     public User(String name, String password, int highScore) {
         this.username = name;

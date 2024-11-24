@@ -1,5 +1,7 @@
 package m223.project.dont_drop_the_blop.model;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -19,6 +21,7 @@ public class Score {
 
     private Integer value = 0;
 
+    @JsonBackReference
     @ManyToOne
     @JoinColumn(name = "user_id")
     private User user;

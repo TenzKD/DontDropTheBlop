@@ -70,16 +70,13 @@ public class SecurityConfiguration {
         .authorizeHttpRequests(auth -> {
           // Allow public endpoints without authentication
           auth.requestMatchers(EVERYONE).permitAll();
-          
-          // Require ADMIN role for specific secured endpoints
-          auth.requestMatchers("/private/users").hasRole("ADMIN");
-          
+
           // Apply ADMIN role for all endpoints matching SECURE paths
           auth.requestMatchers(SECURE).hasRole("ADMIN");
-          
+
           // Any other request must be authenticated
           auth.anyRequest().authenticated();
-      });
+        });
     http.authenticationProvider(authenticationProvider());
     http.addFilterBefore(authenticationJwtTokenFilter(),
         UsernamePasswordAuthenticationFilter.class);
