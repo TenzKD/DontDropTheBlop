@@ -4,6 +4,9 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 import m223.project.dont_drop_the_blop.model.Score;
 
-public interface ScoreRepository extends JpaRepository<Score, Long>{
-    
+/**
+ * Repository interface for accessing Score entities in the database.
+ */
+public interface ScoreRepository extends JpaRepository<Score, Long> {
+
 }

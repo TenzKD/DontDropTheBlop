@@ -8,15 +8,18 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import lombok.Getter;
-import lombok.Setter;
 import m223.project.dont_drop_the_blop.dto.ScoreRequest;
 import m223.project.dont_drop_the_blop.model.User;
 import m223.project.dont_drop_the_blop.service.ScoreService;
 
+/**
+ * The Controller gives access to the endpoints specifically for the score.
+ * the functions are to add scores, show the top10 players based on their
+ * highscore and to clear the specific users score and highscore without
+ * blocking him
+ */
 @RestController
 @RequestMapping("/api/scores")
 public class ScoreController {

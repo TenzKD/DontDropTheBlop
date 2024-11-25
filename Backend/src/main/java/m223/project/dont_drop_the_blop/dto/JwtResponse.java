@@ -5,8 +5,13 @@ import java.util.List;
 import lombok.Getter;
 import lombok.Setter;
 
-@Setter @Getter
-public class JwtResponse{
+/**
+ * Represents the JWT response sent to the client after authentication.
+ * - Contains the token, token type, user ID, username, score, and roles.
+ */
+@Setter
+@Getter
+public class JwtResponse {
 
   private String token;
   private String type = "Bearer";
@@ -15,7 +20,7 @@ public class JwtResponse{
   private int score;
   private List<String> roles;
 
-  public JwtResponse(String accessToken, Long id, String username,int score, List<String> roles) {
+  public JwtResponse(String accessToken, Long id, String username, int score, List<String> roles) {
     this.token = accessToken;
     this.id = id;
     this.username = username;

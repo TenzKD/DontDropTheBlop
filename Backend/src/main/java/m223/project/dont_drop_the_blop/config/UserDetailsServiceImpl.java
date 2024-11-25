@@ -13,10 +13,17 @@ import jakarta.transaction.Transactional;
 import m223.project.dont_drop_the_blop.model.User;
 import m223.project.dont_drop_the_blop.repositories.UserRepository;
 
+/**
+ * Service to load user details by username for authentication.
+ * - Fetches the user from the database using the UserRepository.
+ * - Converts user roles into granted authorities.
+ * - Returns a UserDetailsImpl object for Spring Security.
+ */
 @Service
-public class UserDetailsServiceImpl implements UserDetailsService{
+public class UserDetailsServiceImpl implements UserDetailsService {
   @Autowired
   UserRepository userRepository;
+
   @Override
   @Transactional
   public UserDetailsImpl loadUserByUsername(String username) throws UsernameNotFoundException {
