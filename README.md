@@ -91,13 +91,13 @@ Folgende User Stories haben wir erstellt in Anbetracht unserer Idee inklusive Ak
 
 | **Datum** | **Aufwand** | **Bearbeitet von** | **Beschreibung** |
 | --------- | ----------- | ------------------ | ---------------- |
-| 22.11.24  | 1h          | Kunga&Patrik       | Siehe Titel      |
+| 23.11.24  | 1h          | Kunga&Patrik       | Siehe Titel      |
 
 ##### Userpfade prüfen
 
 | **Datum** | **Aufwand** | **Bearbeitet von** | **Beschreibung**                         |
 | --------- | ----------- | ------------------ | ---------------------------------------- |
-| 22.11.24  | 1h          | Kunga&Patrik       | Prüfen ob die Userpfade angezeigt werden |
+| 23.11.24  | 1h          | Kunga&Patrik       | Prüfen ob die Userpfade angezeigt werden |
 
 ##### Automatisierte Test einbinden
 
@@ -125,13 +125,19 @@ Folgende User Stories haben wir erstellt in Anbetracht unserer Idee inklusive Ak
 
 ### Arbeitsjournal
 
-| **Datum**  | **Aufwand** | **Tätigkeiten** | **Schwierigkeiten/Reflexion** |
-| ---------- | ----------- | --------------- | ----------------------------- |
-| 22.11.2024 | 1 Stunde    |  Frontend mit dem Spiel gefüttert              | übertragung war erfolgreich                             |
-| 22.11.2024 | 3 Stunden  | Frontend CSS angepasst               | müssam aber lehrreich                             |
-| 22.11.2024 | 3 Stunden  | Frontend mit Backand verbunden               | Probleme mit Dom und axios files                             |
-| 22.11.2024 | 1 Stunden  | Im Frontend Regiestrierung und Login eingerichtet              | holperig aber erfolgreich                             |
+| **Datum**  | **Aufwand** | **Tätigkeiten**                                                  | **Schwierigkeiten/Reflexion**                                                                                                                                                                                                   | **Author** |
+| ---------- | ----------- | ---------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------- |
+| 22.11.2024 | 1 h         | Frontend mit dem Spiel gefüttert                                 | übertragung war erfolgreich                                                                                                                                                                                                     | Patrik     |
+| 22.11.2024 | 3 h         | Frontend CSS angepasst                                           | müssam aber lehrreich                                                                                                                                                                                                           | Patrik     |
+| 22.11.2024 | 3 h         | Frontend mit Backand verbunden                                   | Probleme mit Dom und axios files                                                                                                                                                                                                | Patrik     |
+| 22.11.2024 | 1 h         | Im Frontend Regiestrierung und Login eingerichtet                | holperig aber erfolgreich                                                                                                                                                                                                       | Patrik     |
+| 22.11.2024 | 2 h         | Backend vom vom letzten Unterrichtstag 21.11.24 hinzugefügt.     | Da ich Probleme hatte mit dem Einfügen, habe ich es schlussendlich ein File nach dem andern hinzugefügt und geprüft ob es auch funktioniert.                                                                                    | Kunga      |
+| 22.11.2024 | 2 h         | Die Struktur des Backends angepasst auf unser Projekt            | Ich hatte am Schluss der Lektion die Erkenntniss, dass es besser wäre den Score als eigenes Entity zu erstellen anstatt als Attribut von der Klasse User.                                                                       | Kunga      |
+| 22.11.2024 | 4 h         | Endpunkte erstellt um alle User anzuzeigen sowie User zu blocken | Falls genügend Zeit da wäre, könnte man die Funktion als Button hinzufügen welche nur als sichtbar für den Admin ist. Ausserdem sollte ich die Funktion des blocken anpassen, falls es bereits blockiert ist, dass es entblockt | Kunga      |
+|24.11.2024 | 4 h | Score Entity sowie Endpoints für die Applikation hinzugefügt | Ich hatte ziemliche Probleme den Score Entity im Nachhinein hinzuzufügen. Hier wäre es definitiv besser gewesen ein Datenmodell von Anfang an zu erstellen um ein besseren Überblick auf die Struktur zu haben. Ein Grund war wahrscheinlich weil die Mehrheit der Klassen implementiert worden ist vom Stoff während dem Unterricht. Bei der Implementierung habe ich es so gemacht dass man die scores adden kann in der Liste und der höchste Wert von score in der Liste wird dem highscore hinzugefügt. Ich war am überlegen ob ich eventuell den Wert direkt an highscore hinzufügen soll falls dieser höher ist, damit nicht eine riesige Liste entsteht. Schlussendlich habe ich mich dagegen entschieden aufgrund von, wie unser Dozent gesagt hat zu mir, analystischen gründen wie z.B wie viele Punkte hatte der User im Durchschnitt etc. Stattdessen gab ich dem scoreController einen DELETE endpoint zum löschen von scores und highscore des users. Dieser kann nur von einem admin zugegriffen werden. | Kunga |
+
 ## Hilfestellungen
 
 - Struktur des Codes fürs Backend vom Unterricht Modul 223 - Multi User Applikation
 - [Nutzung von ChatGPT für Programmierunterstützung](https://chatgpt.com/)
+- Hilfestellungen durch den Dozenten in diversen Punkten

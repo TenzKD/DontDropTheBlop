@@ -43,7 +43,7 @@ public class UserDetailsImpl implements UserDetails {
     return new UserDetailsImpl(
         (long)user.getId(),
         user.getUsername(),
-        user.getScore(),
+        user.getHighScore(),
         user.getPassword(),
         authorities);
   }

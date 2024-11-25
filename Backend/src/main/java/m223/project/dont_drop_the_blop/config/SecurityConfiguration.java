@@ -3,7 +3,6 @@ package m223.project.dont_drop_the_blop.config;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.http.HttpMethod;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.dao.DaoAuthenticationProvider;
 import org.springframework.security.config.Customizer;
@@ -25,8 +24,8 @@ public class SecurityConfiguration {
   @Autowired
   private AuthenticationEntryPoint unauthorizedHandler;
 
-  private static final String[] EVERYONE = { "/public", "/", "/api/auth/*" };
-  private final static String[] SECURE = { "/private/*", "/items" };
+  private static final String[] EVERYONE = { "/", "/api/auth/*", "/api/scores/top10" };
+  private final static String[] SECURE = { "/private/*", "/api/scores/clear" };
   private final static String[] ROLES = { "ADMIN" };
 
   @Bean
@@ -71,16 +70,13 @@ public class SecurityConfiguration {
         .authorizeHttpRequests(auth -> {
           // Allow public endpoints without authentication
           auth.requestMatchers(EVERYONE).permitAll();
-          
-          // Require ADMIN role for specific secured endpoints
-          auth.requestMatchers("/private/users").hasRole("ADMIN");
-          
+
           // Apply ADMIN role for all endpoints matching SECURE paths
           auth.requestMatchers(SECURE).hasRole("ADMIN");
-          
+
           // Any other request must be authenticated
           auth.anyRequest().authenticated();
-      });
+        });
     http.authenticationProvider(authenticationProvider());
     http.addFilterBefore(authenticationJwtTokenFilter(),
         UsernamePasswordAuthenticationFilter.class);

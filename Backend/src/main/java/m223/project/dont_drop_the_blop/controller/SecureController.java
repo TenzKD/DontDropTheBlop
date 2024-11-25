@@ -22,7 +22,7 @@ public class SecureController {
     @Autowired
     UserRepository userRepository;
 
-      @PreAuthorize("hasRole('ROLE_ADMIN')")
+  @PreAuthorize("hasRole('ROLE_ADMIN')")
   @GetMapping("/users")
   public ResponseEntity<List<User>> getAllUsers() {
         List<User> users = userRepository.findAll();
@@ -36,9 +36,9 @@ public class SecureController {
     //FETCH User by name
     User user = userRepository.findByUsername(username).orElseThrow(() -> new RuntimeException("Error: User not found."));
 
-    //Block user and reset score
+    //Block user and reset score and highscore
     user.setBlocked(true);
-    user.setScore(0);
+    user.setHighScore(0);
 
     //Save the updated user
     userRepository.save(user);
