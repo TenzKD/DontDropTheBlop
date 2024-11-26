@@ -175,24 +175,26 @@ Folgende User Storys haben wir erstellt in Anbetracht unserer Idee inklusive Akz
 
 ##### Controller
 
-Die Schicht verwaltet die HTTP-Anfragen der User und definiert die Endpunkte.
-
+Die Controller-Schicht ist für die Verwaltung der HTTP-Anfragen verantwortlich. Sie definiert die Endpunkte der Anwendung, die von den Clients aufgerufen werden können. Die Controller übernehmen die Rolle des Vermittlers, indem sie eingehende Anfragen an die entsprechenden Services weiterleiten und die Ergebnisse an den Client zurückgeben.
 ##### Service
 
-Die Logik wird hier implementiert.
+Die Service-Schicht enthält die Geschäftslogik der Anwendung. Hier werden alle relevanten Operationen implementiert, die die Anforderungen der Endpunkte erfüllen. Beispiele für typische Service-Methoden:
 
-Beispiel:
-- Speichern von Score
-- Abrufen der Top 10 Spieler etc.
+- Speichern von Score: Verarbeitet die Punktzahl eines Benutzers und aktualisiert dessen Highscore, falls die Punktzahl höher ist.
+- Abrufen der Top 10 Spieler: Berechnet und liefert eine Liste der besten Spieler basierend auf ihren Highscores.
 
 ##### Repository
 
-Zuständig für den Zugriff auf die Datenbank. Verwendet JPA um CRUD Operationen auf den Entities auszuführen.
+Die Repository-Schicht ist für den Datenbankzugriff zuständig. Sie verwendet JPA (Java Persistence API), um CRUD-Operationen (Erstellen, Lesen, Aktualisieren und Löschen) auf den Entitäten auszuführen. Jedes Repository ist direkt mit einer Entität verbunden, z. B. UserRepository für die Benutzerentität oder ScoreRepository für die Punkteentität.
 
 #### Sicherheitskonzept
 
-Endpunkte sind in öffentliche(public), private(user only) und administrative(admin only) unterteilt.
-Für die Authentifizierung wird JSON Web Token JWT verwendet.
+Die Sicherheit der Anwendung basiert auf einer klaren Trennung von Zugriffsrechten und der Verwendung von JSON Web Tokens (JWT) zur Authentifizierung und Autorisierung.
+
+**Zugriffsebenen**:
+- Öffentlich (public): Endpunkte, die ohne Authentifizierung zugänglich sind, z. B. Registrierung oder Login.
+- Privat (user only): Endpunkte, die nur für authentifizierte Benutzer verfügbar sind, z. B. das Abrufen persönlicher Scores.
+- Administrativ (admin only): Endpunkte, die nur Administratoren nutzen dürfen, z. B. Benutzerverwaltung.
 
 **AuthTokenFilter Klasse**
 
@@ -271,6 +273,7 @@ Für das Backend wurden Unit-Tests durchgeführt, um die Funktionalität von der
 ## Testplan für die Spielanwendung "Dont Drop The Blop"
 
 #### 1. Registrierung eines neuen Benutzers
+
 
 - **Testziel**: Sicherstellen, dass Benutzer sich erfolgreich registrieren können.
 - **Vorgehensweise**: Ein neuer Benutzer öffnet die Registrierungsseite, füllt alle erforderlichen Felder (Benutzername, Passwort) korrekt aus und sendet das Formular ab.
@@ -362,11 +365,13 @@ Administratoren haben die Möglichkeit, Benutzer zu sperren oder zu bannen. Dies
 
 Passwort-Sicherheit: Benutzerpasswörter werden mit einem sicheren Hashing-Algorithmus  verschlüsselt in der Datenbank gespeichert. Es ist zu keinem Zeitpunkt möglich, das Passwort im Klartext auszulesen.
 
+
 ## Auswertung
 
 ### Auswertung aus Sicht von Patrik
 
 Rückblickend muss ich noch sehr viel über Frontend lernen. Besonders die Arbeit mit Tokens hat mich komplett überfordert. Am Anfang habe ich zu viel Zeit in das Programmieren des Spiels verbrannt, wodurch mir die Zeit für die Planung und Implementierung anderer wichtiger Teile fehlte. Die Planung war zu oberflächig und nicht gut durchgesprochen, was sich im Verlauf des Projekts als Problem herausgestellt hat. Die Kommunikation im Team war ebenfalls nicht ausreichend und hat starkes Entwicklungspotential. Dank meinem großzügigen Chef, der es versteht, dass schulische Projekte hohe Priorität besitzen, konnte ich Montag freinehmen. Im Verlauf von Montag ist mir jedoch aufgefallen, dass die Zeit nicht reicht, und er hat mir auch Dienstag frei gegeben. Obwohl ich so viel Zeit hatte, bin ich dennoch sehr enttäuscht von dem Ergebnis. Die Idee, ein eigenes Minispiel mit Highscore zu erstellen, hat mich zunächst sehr motiviert, aber die ganzen Hürden und Fehlermeldungen haben mich schließlich moralisch gebrochen, und ich möchte nichts mehr damit zu tun haben. 
+
 ### Arbeitsjournal
 
 | **Datum**  | **Aufwand** | **Tätigkeiten**                                                  | **Schwierigkeiten/Reflexion**                                                                                                                                                                                                   | **Author** |
