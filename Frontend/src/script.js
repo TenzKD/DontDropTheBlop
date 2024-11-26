@@ -2,29 +2,32 @@ import AuthService from './services/auth.serviece';
 import axios from 'axios';
 import playerImageSrc from './assets/Blooby.png';
 
-
-
+let gameRunning = false;
+let score = 0;
 
 function gameOver() {
   gameRunning = false;
   resetButton.style.display = "inline-block";
 
   const currentUser = AuthService.getCurrentUser();
-  if (currentUser && currentUser.username) {
+  if (currentUser && currentUser.username && currentUser.token) {
     const savedScore = currentUser.score || 0;
     if (score > savedScore) {
-      // Hole den JWT-Token des Benutzers
-      const token = currentUser.token;  // Stelle sicher, dass `token` im `currentUser`-Objekt gespeichert ist
-
-      axios.post('http://localhost:8080/api/auth/saveScore', {
-          username: currentUser.username,
+      // Hole die Benutzer-ID und den Score
+      const userId = currentUser.id;  // Stelle sicher, dass `id` im `currentUser`-Objekt gespeichert ist
+      const token = currentUser.token;
+      axios.post('http://localhost:8080/api/scores/add', {
+          userId: userId,
           score: score
+          
         }, {
+          
           headers: {
-            'Authorization': `Bearer ${token}`,  // Füge den JWT-Token zum Header hinzu
-            'Content-Type': 'application/json'
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${token}`
           }
         })
+        
         .then((response) => {
           console.log("Score erfolgreich gespeichert");
           // Aktualisiere den gespeicherten Score im lokalen Speicher
@@ -47,8 +50,7 @@ export default function initializeGame() {
   const resetButton = document.getElementById("resetButton");
   const scoreElement = document.getElementById("score");
 
-  let gameRunning = false;
-  let score = 0;
+  
   let platformSpeed = 1;
   let lastFrameTime = 0;
   const fpsInterval = 1000 / 120;
@@ -79,9 +81,6 @@ export default function initializeGame() {
     player.y = platforms[0].y - player.height;
     player.x = platforms[0].x + (platformWidth / 2) - (player.width / 2);
   }
-
-
-
 
 
 // Spieler-Bild erstellen und Quelle setzen

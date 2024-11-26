@@ -7,7 +7,6 @@ import img from '../assets/DontDropTheBlop.png';
 function Highscore() {
   const [players, setPlayers] = useState([]);
 
-  // Highscores vom Backend abrufen
   useEffect(() => {
     const fetchHighscores = async () => {
       try {
@@ -17,9 +16,10 @@ function Highscore() {
         console.error('Fehler beim Abrufen der Highscores:', error);
       }
     };
-
+  
     fetchHighscores();
   }, []);
+  
 
   return (
     <div className="container">
@@ -36,10 +36,10 @@ function Highscore() {
           <tbody>
             {players.length > 0 ? (
               players.map((player, index) => (
-                <tr key={player.id}>
+                <tr key={index}>
                   <td>{index + 1}</td>
                   <td>{player.username}</td>
-                  <td>{player.highScore}</td>
+                  <td>{player.score}</td>
                 </tr>
               ))
             ) : (
