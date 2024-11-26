@@ -26,6 +26,7 @@
       - [Score](#score)
       - [Security](#security)
     - [Testplan](#testplan)
+      - [Funktionstests der Unit-Tests](#funktionstests-der-unit-tests)
     - [Testprotokoll](#testprotokoll)
   - [Frontend](#frontend)
     - [Testplan](#testplan-1)
@@ -198,7 +199,21 @@ Für unser Projekt nutzen wir eine relationale Datenbank (MySQL). Tabellen wie u
 
 ### Testplan
 
+Für das Backend wurden Unit-Tests durchgeführt, um die Funktionalität von der User Rolle zu prüfen ob die default Values übereinstimmen sowie das hinzufügen der score Punkte.
+
+#### Funktionstests der Unit-Tests
+
+| Testfall                                                                                         | Erwartetes Verhalten                                                                                         |
+| ------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------ |
+| Initialisierung der Benutzer-Entität (`testDefaultValues`)                                    | Die Felder der Benutzer-Entität werden korrekt initialisiert: scores ist leer, isBlocked ist false, highScore ist 0.                                                     |
+| Hinzufügen einer Punktzahl zur User-Entität (`testAddScoreToUser`)                            | Die Punktzahl wird korrekt zur scores-Menge hinzugefügt, und die Beziehung zwischen Score und User ist konsistent.                                                     |
+
 ### Testprotokoll
+
+| **Testfall**         | **Testverhalten**                                         | **Testresultat** | **Kommentar**                                     |
+| -------------------- | -------------------------------------------------------- | ---------------- | ------------------------------------------------ |
+| `testDefaultValues`  | Standardwerte der `User`-Entität werden geprüft          | Bestanden       | Standardwerte (`isBlocked`, `scores`, `highScore`) korrekt |
+| `testAddScoreToUser` | Hinzufügen einer Punktzahl zur `User`-Entität wird geprüft | Bestanden       | Punktzahl wird erfolgreich hinzugefügt und korrekt referenziert |
 
 ## Frontend
 
