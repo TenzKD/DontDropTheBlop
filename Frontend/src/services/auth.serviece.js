@@ -33,7 +33,7 @@ const getCurrentUser = () => {
 };
 
 const saveScore = (username, score) => {
-  return axios.post(API_URL + "saveScore", {
+  return axios.post("http://localhost:8080/api/scores/" + "add", {
     username,
     score,
   });
