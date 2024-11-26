@@ -2,13 +2,44 @@
 
 ## Inhaltsverzeichnis
 
-- [Projektidee](#projektidee)
+- [DontDroptheBlop](#dontdroptheblop)
+  - [Inhaltsverzeichnis](#inhaltsverzeichnis)
+  - [Projektidee](#projektidee)
+  - [Arbeitsplan](#arbeitsplan)
+    - [Projektvorbereitung und Anforderungsanalyse](#projektvorbereitung-und-anforderungsanalyse)
+    - [Backend-Entwicklung](#backend-entwicklung)
+    - [Frontend-Entwicklung](#frontend-entwicklung)
+    - [Integration und Tests](#integration-und-tests)
+    - [Deployment](#deployment)
+    - [Präsentation vorbereiten](#präsentation-vorbereiten)
+  - [Backend](#backend)
+    - [Architektur](#architektur)
+      - [Hauptkomponenten](#hauptkomponenten)
+        - [Controller](#controller)
+        - [Service](#service)
+        - [Repository](#repository)
+      - [Sicherheitskonzept](#sicherheitskonzept)
+      - [Datenbankmodell](#datenbankmodell)
+      - [Funktionen](#funktionen)
+    - [Schnittstellen](#schnittstellen)
+      - [Authentizierung](#authentizierung)
+      - [Score](#score)
+      - [Security](#security)
+    - [Testplan](#testplan)
+      - [Funktionstests der Unit-Tests](#funktionstests-der-unit-tests)
+    - [Testprotokoll](#testprotokoll)
+  - [Frontend](#frontend)
+    - [Testplan](#testplan-1)
+    - [Testprotokoll](#testprotokoll-1)
+  - [Auswertung](#auswertung)
+    - [Arbeitsjournal](#arbeitsjournal)
+  - [Hilfestellungen](#hilfestellungen)
 
 ## Projektidee
 
-Unser Team möchte eine Gaming Applikation erstellen, die den Score des Users nach einem Spiel auf den Highscore Board abspeichert. Um die User einen zusätzlichen Motivationsgrund zum Spielen zu geben, wollen wir den Highscore Board auf die Top 10 scores beschränken. Der User soll die Möglichkeit haben einen Account zu erstellen und sich einzuloggen. Der Username wird dann auf dem Highscore angezeigt mit der Punktzahl, falls dieser hoch genug war.
+Unser Team möchte eine Gaming-Applikation erstellen, die den Score des Users nach einem Spiel auf dem Highscore-Board abspeichert. Um den Usern einen zusätzlichen Motivationsgrund zum Spielen zu geben, wollen wir den Highscore Board auf die Top 10 Scores beschränken. Der User soll die Möglichkeit haben, einen Account zu erstellen und sich einzuloggen. Der Username wird dann auf dem Highscore angezeigt mit der Punktzahl, falls dieser hoch genug war.
 
-Folgende User Stories haben wir erstellt in Anbetracht unserer Idee inklusive Akzeptanzkriterien:
+Folgende User Storys haben wir erstellt in Anbetracht unserer Idee inklusive Akzeptanzkriterien:
 
 **Als Benutzer möchte ich mich einloggen können mit Usernamen und Passwort, um das Spiel spielen zu können.**
 
@@ -39,44 +70,48 @@ Folgende User Stories haben wir erstellt in Anbetracht unserer Idee inklusive Ak
 - Die Option ist klar als "Highscore zurücksetzen" deklariert.
 - Nach der Bestätigung wird der Score im Web sowie der Datenbank zurückgesetzt.
 
-## Planung
+## Arbeitsplan
 
-### Arbeitsplanung
-
-#### Projektvorbereitung und Anforderungsanalyse
-
-##### Dokumentation als README.md
+### Projektvorbereitung und Anforderungsanalyse
 
 | **Datum**           | **Bearbeitet von** | **Aufwand**                         | **Beschreibung**                                                          |
 | ------------------- | ------------------ | ----------------------------------- | ------------------------------------------------------------------------- |
 | 15.11.24 - 28.11.24 | Kunga              | Durchgehend während der Projektzeit | Dokumentation, die am Anfang bis zum Schluss stets aktuell gehalten wird. |
+| 15.11.24            | Kunga              | 0.75h                               | Projektidee und eine Analyse der Anforderungen sowie Anforderungskatalog erstellen |
 
-##### Anforderungsanalyse und Erstellung eines Anforderungskatalogs
+### Backend-Entwicklung
 
-| **Datum** | **Aufwand** | **Bearbeitet von** | **Beschreibung**                                                                   |
-| --------- | ----------- | ------------------ | ---------------------------------------------------------------------------------- |
-| 15.11.24  | 0.75h       | Kunga              | Projektidee und eine Analyse der Anforderungen sowie Anforderungskatalog erstellen |
+| **Datum** | **Bearbeitet von** | **Aufwand** | **Beschreibung**                                                                 |
+| --------- | ------------------ | ----------- | ------------------------------------------------------------------------------ |
+| 16.11.24  | Kunga              | 1h          | Backend-Struktur vom Unterricht 16.11.24 in unserem Backend-Folder hinzugefügt. |
+| 22.11.24  | Kunga              | 3h          | Backend vom neuesten Unterricht (21.11) angepasst.                              |
+| 22.11.24  | Kunga              | 2h          | Fehlende Klassen im Backend projektspezifisch hinzugefügt.                      |
 
-##### Backend Struktur vom Unterricht 16.11.24
+### Frontend-Entwicklung
 
-| **Datum** | **Aufwand** | **Bearbeitet von** | **Beschreibung**                                                                |
-| --------- | ----------- | ------------------ | ------------------------------------------------------------------------------- |
-| 20.11.24  | 1h          | Kunga              | Backend Struktur vom Unterricht 16.11.24 in unserem Backend Folder hinzugefügt. |
+| **Datum** | **Bearbeitet von** | **Aufwand** | **Beschreibung**                               |
+| --------- | ------------------ | ----------- | ---------------------------------------------- |
+| 22.11.24  | Patrik             | 2.5h        | Struktur Frontend mit allen Pages und Services definiert und implementiert.      |
+| 22.11.24  | Patrik             | 2h          | Anpassung der CSS für ein konsistentes Design.                                   |
 
-##### Neue Backend Struktur vom Unterricht 21.11.24
+### Integration und Tests
 
-| **Datum** | **Aufwand** | **Bearbeitet von** | **Beschreibung**                              |
-| --------- | ----------- | ------------------ | --------------------------------------------- |
-| 22.11.24  | 3h          | Kunga              | Backend vom neusten Unterricht 21.11 anpassen |
+| **Datum** | **Bearbeitet von** | **Aufwand** | **Beschreibung**                                                  |
+| --------- | ------------------ | ----------- | ----------------------------------------------------------------- |
+| 23.11.24  | Kunga & Patrik     | 1h          | Frontend und Backend zusammengeführt und getestet.                |
+| 23.11.24  | Kunga & Patrik     | 1h          | Prüfung der Userpfade, um sicherzustellen, dass alle korrekt sind. |
+| 24.11.24  | Kunga & Patrik     | 1h          | Automatisierte Tests für Frontend und Backend erstellt.           |
 
-##### Fehlende Klassen im Backend für das Projekt spezifisch hinzufügen
+### Deployment
 
-| **Datum** | **Aufwand** | **Bearbeitet von** | **Beschreibung**                                                         |
-| --------- | ----------- | ------------------ | ------------------------------------------------------------------------ |
-| 22.11.24  | 2h          | Kunga              | Allfällige Änderungen im existierenden Code für unser Projekt spezifisch |
+| **Datum** | **Bearbeitet von** | **Aufwand** | **Beschreibung**                                        |
+| --------- | ------------------ | ----------- | ------------------------------------------------------- |
+| 26.11.24  | Kunga & Patrik     | 2h          | Deployment der Anwendung auf dem Server und Tests.      |
+| 27.11.24  | Kunga & Patrik     | 1.5h        | Abschlussprüfung der Anwendung und finale Anpassungen.  |
 
-##### Struktur des Frontend (React) definieren und implementieren
+### Präsentation vorbereiten
 
+<<<<<<< HEAD
 | **Datum** | **Aufwand** | **Bearbeitet von** | **Beschreibung**                               |
 | --------- | ----------- | ------------------ | ---------------------------------------------- |
 | 22.11.24  | 2.5h        | Patrik             | Struktur Frontend mit allen pages und services |
@@ -118,12 +153,111 @@ Folgende User Stories haben wir erstellt in Anbetracht unserer Idee inklusive Ak
 
 
 #####
+=======
+| **Datum** | **Bearbeitet von** | **Aufwand** | **Beschreibung**                                        |
+| --------- | ------------------ | ----------- | ------------------------------------------------------- |
+| 27.11.24  | Kunga & Patrik     | 4h          | Präsentation als PowerPoint vorbereiten                 |
+| 28.11.24  | Kunga & Patrik     | 2h          | Nochmal kurz die Präsentation sowie prüfen ob alles funktioniert  |
+>>>>>>> 6de4cee72c712ea71b317a3db39410d115fa68e3
 
 ## Backend
 
+### Architektur
+
+#### Hauptkomponenten
+
+##### Controller
+
+Die Schicht verwaltet die HTTP-Anfragen der User und definiert die Endpunkte.
+
+##### Service
+
+Die Logik wird hier implementiert.
+
+Beispiel:
+- Speichern von Score
+- Abrufen der Top 10 Spieler etc.
+
+##### Repository
+
+Zuständig für den Zugriff auf die Datenbank. Verwendet JPA um CRUD Operationen auf den Entities auszuführen.
+
+#### Sicherheitskonzept
+
+Endpunkte sind in öffentliche(public), private(user only) und administrative(admin only) unterteilt.
+Für die Authentifizierung wird JSON Web Token JWT verwendet.
+
+**AuthTokenFilter Klasse**
+
+Filtert Anfragen und prüft die JWTs und authentifiziert Benutzer anhand der Tokens.
+
+**Rollen und Berechtigungen**
+
+Die Rollen `ROLE_USER` und ``ROLE_ADMIN`` werden über die Role Entität verwaltet. Ein Benutzer ist bei der Registrierung als default Rolle User.
+
+#### Datenbankmodell
+**Entitäten**:
+  - `User`: Enthält Benutzerinformationen wie Name, Passwort, Score, Rollen und den Status (blockiert oder nicht blockiert).
+  - `Score`: Speichert die Punktzahlen eines Benutzers und ist mit einer ManyToOne Benziehung verknüpft
+  - `Role`: Definiert die Benutzerrollen.
+
+**Relationale Datenbank**
+
+Für unser Projekt nutzen wir eine relationale Datenbank (MySQL). Tabellen wie users, roles und scores werden basierend auf den @Entities automatisch generiert.
+  
+#### Funktionen
+
+**Benutzerverwaltung**
+ - Benutzerregistrierung mit Rollen
+ - Passwort- und Zugangsschutz
+
+**Score**
+- Speichern von Scorepunkten
+- Löschen der Punktzahl eines Spielers (Admin)
+- Abrufen der besten Spieler (Top 10 nach Highscore)
+
+### Schnittstellen
+
+#### Authentizierung
+
+| HTTP Request | Endpoint   | Beschreibung                                       |
+| :----------- | :--------- | -------------------------------------------------- |
+| POST         | /login     | Gibt den username und password um sich mit einem existieren Konto einzuloggen                                  |
+| POST         | /signup    | Erstellt ein neues Konto mit username und passwort. Prüft ob der username bereits vergeben wurde. |
+
+#### Score
+
+| HTTP Request | Endpoint   | Beschreibung                                       |
+| :----------- | :--------- | -------------------------------------------------- |
+| POST         | /add     | Gibt dem User einen entsprechenden score und speichert es ab.                       |
+| GET         | /top10    | Zeigt die 10 Spieler mit dem höchsten highscore |
+| DELETE         | /{userId}/clear    | Löscht den score und highscore eines spezifischen Spielers |
+
+
+#### Security
+
+| HTTP Request | Endpoint   | Beschreibung                                       |
+| :----------- | :--------- | -------------------------------------------------- |
+| GET         | /users    | Zeigt eine Liste mit allen Usern an  |
+| PUT         | /block/{username}  | Blockt einen spezifischen User. Der User kann sich nicht mehr einloggen und sein highscore wird resettet |
+
 ### Testplan
 
+Für das Backend wurden Unit-Tests durchgeführt, um die Funktionalität von der User Rolle zu prüfen ob die default Values übereinstimmen sowie das hinzufügen der score Punkte.
+
+#### Funktionstests der Unit-Tests
+
+| Testfall                                                                                         | Erwartetes Verhalten                                                                                         |
+| ------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------ |
+| Initialisierung der Benutzer-Entität (`testDefaultValues`)                                    | Die Felder der Benutzer-Entität werden korrekt initialisiert: scores ist leer, isBlocked ist false, highScore ist 0.                                                     |
+| Hinzufügen einer Punktzahl zur User-Entität (`testAddScoreToUser`)                            | Die Punktzahl wird korrekt zur scores-Menge hinzugefügt, und die Beziehung zwischen Score und User ist konsistent.                                                     |
+
 ### Testprotokoll
+
+| **Testfall**         | **Testverhalten**                                         | **Testresultat** | **Kommentar**                                     |
+| -------------------- | -------------------------------------------------------- | ---------------- | ------------------------------------------------ |
+| `testDefaultValues`  | Standardwerte der `User`-Entität werden geprüft          | Bestanden       | Standardwerte (`isBlocked`, `scores`, `highScore`) korrekt |
+| `testAddScoreToUser` | Hinzufügen einer Punktzahl zur `User`-Entität wird geprüft | Bestanden       | Punktzahl wird erfolgreich hinzugefügt und korrekt referenziert |
 
 ## Frontend
 
@@ -131,6 +265,7 @@ Folgende User Stories haben wir erstellt in Anbetracht unserer Idee inklusive Ak
 
 #### 1. Registrierung eines neuen Benutzers
 
+<<<<<<< HEAD
 - **Testziel**: Sicherstellen, dass Benutzer sich erfolgreich registrieren können.
 - **Vorgehensweise**: Ein neuer Benutzer öffnet die Registrierungsseite, füllt alle erforderlichen Felder (Benutzername, Passwort) korrekt aus und sendet das Formular ab.
 - **Erwartetes Ergebnis**: Der Benutzer erhält eine Erfolgsmeldung, dass die Registrierung erfolgreich war.
@@ -221,6 +356,8 @@ Administratoren haben die Möglichkeit, Benutzer zu sperren oder zu bannen. Dies
 
 Passwort-Sicherheit: Benutzerpasswörter werden mit einem sicheren Hashing-Algorithmus  verschlüsselt in der Datenbank gespeichert. Es ist zu keinem Zeitpunkt möglich, das Passwort im Klartext auszulesen.
 
+=======
+>>>>>>> 6de4cee72c712ea71b317a3db39410d115fa68e3
 ## Auswertung
 
 ### Auswertung aus Sicht von Patrik
@@ -243,6 +380,8 @@ Rückblickend muss ich noch sehr viel über Frontend lernen. Besonders die Arbei
 | 26.11.2024 | 2 h         | Frontend Test einbinden                                  | Habe mithilfe von ChatGPT zest erstellt für den Frontend, aber erfoglos, die test konnte ich nachdem ich weitere node_models heruntergeladen habe Ausführen, aber trozdem konte es irgenwie den Syntax nicht verstehen, somit habe ich beschlossen auch hier aufzugeben.                                                                                                                                                                                              | Patrik     |
 | 22.11.2024 | 1 h         | ReadMe nachtragen                                   | Meine erlebnisse im ReadMe für die Nachwelt festgehalten                                                                                                                                                                                               | Patrik     |
 
+|25.11.2024 | 0.5 h | Die Block Funktion mit unblock erweitert | Dies war relativ einfach. Ich musste hier bei der betroffenen Funktion nur einen if/else statement setzen zum prüfen ob der user bereits blockiert ist oder nicht | Kunga |
+| 25.11.2024 | 0.5 h | Kommentare gesetzt für die Klassen | Keine Schwierigkeiten | Kunga |
 
 ## Hilfestellungen
 
