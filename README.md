@@ -9,9 +9,14 @@
     - [Projektvorbereitung und Anforderungsanalyse](#projektvorbereitung-und-anforderungsanalyse)
     - [Backend-Entwicklung](#backend-entwicklung)
     - [Frontend-Entwicklung](#frontend-entwicklung)
-    - [Integration und Tests](#integration-und-tests)
-    - [Deployment](#deployment)
     - [Präsentation vorbereiten](#präsentation-vorbereiten)
+    - [CSS anpassen](#css-anpassen)
+    - [Integration und Tests](#integration-und-tests)
+    - [Frontend und Backend zusammenführen](#frontend-und-backend-zusammenführen)
+    - [Userpfade prüfen](#userpfade-prüfen)
+    - [Automatisierte Test einbinden](#automatisierte-test-einbinden)
+    - [Deployment](#deployment)
+    - [Dokumentation fertigstellen](#dokumentation-fertigstellen)
   - [Backend](#backend)
     - [Architektur](#architektur)
       - [Hauptkomponenten](#hauptkomponenten)
@@ -29,9 +34,23 @@
       - [Funktionstests der Unit-Tests](#funktionstests-der-unit-tests)
     - [Testprotokoll](#testprotokoll)
   - [Frontend](#frontend)
-    - [Testplan](#testplan-1)
-    - [Testprotokoll](#testprotokoll-1)
+  - [Testplan für die Spielanwendung "Dont Drop The Blop"](#testplan-für-die-spielanwendung-dont-drop-the-blop)
+      - [1. Registrierung eines neuen Benutzers](#1-registrierung-eines-neuen-benutzers)
+      - [2. Anmeldung eines registrierten Benutzers](#2-anmeldung-eines-registrierten-benutzers)
+      - [3. Starten des Spiels](#3-starten-des-spiels)
+      - [4. Spielfluss und Spielverhalten](#4-spielfluss-und-spielverhalten)
+      - [5. Speichern des Scores nach Spielende](#5-speichern-des-scores-nach-spielende)
+      - [6. Anzeige der Highscore-Liste](#6-anzeige-der-highscore-liste)
+  - [Testprotokoll für die Spielanwendung "Dont Drop The Blop"](#testprotokoll-für-die-spielanwendung-dont-drop-the-blop)
+  - [Sicherheitskonzept für die Spielanwendung "Dont Drop The Blop"](#sicherheitskonzept-für-die-spielanwendung-dont-drop-the-blop)
+    - [1. Authentifizierung](#1-authentifizierung)
+    - [2. Autorisierung](#2-autorisierung)
+    - [3. Zugriffskontrollen](#3-zugriffskontrollen)
+    - [4. Datenintegrität und Manipulationsschutz](#4-datenintegrität-und-manipulationsschutz)
+    - [5. Benutzerverwaltung und Sperrfunktion](#5-benutzerverwaltung-und-sperrfunktion)
+    - [6. Datensicherheit](#6-datensicherheit)
   - [Auswertung](#auswertung)
+    - [Auswertung aus Sicht von Patrik](#auswertung-aus-sicht-von-patrik)
     - [Arbeitsjournal](#arbeitsjournal)
   - [Hilfestellungen](#hilfestellungen)
 
@@ -94,6 +113,18 @@ Folgende User Storys haben wir erstellt in Anbetracht unserer Idee inklusive Akz
 | 22.11.24  | Patrik             | 2.5h        | Struktur Frontend mit allen Pages und Services definiert und implementiert.      |
 | 22.11.24  | Patrik             | 2h          | Anpassung der CSS für ein konsistentes Design.                                   |
 
+### Präsentation vorbereiten
+
+| **Datum** | **Aufwand** | **Bearbeitet von** | **Beschreibung**                               |
+| --------- | ----------- | ------------------ | ---------------------------------------------- |
+| 22.11.24  | 2.5h        | Patrik             | Struktur Frontend mit allen pages und services |
+
+### CSS anpassen
+
+| **Datum** | **Aufwand** | **Bearbeitet von** | **Beschreibung**                 |
+| --------- | ----------- | ------------------ | -------------------------------- |
+| 22.11.24  | 2h          | Patrik             | Anpassen der Pages gemäss Design |
+
 ### Integration und Tests
 
 | **Datum** | **Bearbeitet von** | **Aufwand** | **Beschreibung**                                                  |
@@ -102,6 +133,26 @@ Folgende User Storys haben wir erstellt in Anbetracht unserer Idee inklusive Akz
 | 23.11.24  | Kunga & Patrik     | 1h          | Prüfung der Userpfade, um sicherzustellen, dass alle korrekt sind. |
 | 24.11.24  | Kunga & Patrik     | 1h          | Automatisierte Tests für Frontend und Backend erstellt.           |
 
+### Frontend und Backend zusammenführen
+
+| **Datum** | **Aufwand** | **Bearbeitet von** | **Beschreibung** |
+| --------- | ----------- | ------------------ | ---------------- |
+| 25.11.24  | 2h          | Patrik       | Siehe Titel      |
+
+### Userpfade prüfen
+
+| **Datum** | **Aufwand** | **Bearbeitet von** | **Beschreibung**                         |
+| --------- | ----------- | ------------------ | ---------------------------------------- |
+| 25.11.24  | 2h          | Kunga & Patik      | Prüfen ob die Userpfade angezeigt werden |
+
+
+### Automatisierte Test einbinden
+
+| **Datum** | **Aufwand** | **Bearbeitet von** | **Beschreibung**                         |
+| --------- | ----------- | ------------------ | ---------------------------------------- |
+| 25.11.24  | 2h          | Patrik       | Testfälle erstellen für Frontend |
+
+
 ### Deployment
 
 | **Datum** | **Bearbeitet von** | **Aufwand** | **Beschreibung**                                        |
@@ -109,56 +160,12 @@ Folgende User Storys haben wir erstellt in Anbetracht unserer Idee inklusive Akz
 | 26.11.24  | Kunga & Patrik     | 2h          | Deployment der Anwendung auf dem Server und Tests.      |
 | 27.11.24  | Kunga & Patrik     | 1.5h        | Abschlussprüfung der Anwendung und finale Anpassungen.  |
 
-### Präsentation vorbereiten
-
-<<<<<<< HEAD
-| **Datum** | **Aufwand** | **Bearbeitet von** | **Beschreibung**                               |
-| --------- | ----------- | ------------------ | ---------------------------------------------- |
-| 22.11.24  | 2.5h        | Patrik             | Struktur Frontend mit allen pages und services |
-
-##### CSS anpassen
-
-| **Datum** | **Aufwand** | **Bearbeitet von** | **Beschreibung**                 |
-| --------- | ----------- | ------------------ | -------------------------------- |
-| 22.11.24  | 2h          | Patrik             | Anpassen der Pages gemäss Design |
-
-##### Frontend und Backend zusammenführen
-
-| **Datum** | **Aufwand** | **Bearbeitet von** | **Beschreibung** |
-| --------- | ----------- | ------------------ | ---------------- |
-| 25.11.24  | 2h          | Patrik       | Siehe Titel      |
-
-##### Userpfade prüfen
+### Dokumentation fertigstellen
 
 | **Datum** | **Aufwand** | **Bearbeitet von** | **Beschreibung**                         |
 | --------- | ----------- | ------------------ | ---------------------------------------- |
-| 25.11.24  | 2h          | Kunga & Patik      | Prüfen ob die Userpfade angezeigt werden |
-
-
-##### Automatisierte Test einbinden
-
-| **Datum** | **Aufwand** | **Bearbeitet von** | **Beschreibung**                         |
-| --------- | ----------- | ------------------ | ---------------------------------------- |
-| 25.11.24  | 2h          | Patrik       | Testfälle erstellen für Frontend |
-##### Dokumentation fertigstellen
-
-| **Datum** | **Aufwand** | **Bearbeitet von** | **Beschreibung**                         |
-| --------- | ----------- | ------------------ | ---------------------------------------- |
-| 28.11.24  | 3h          | Kunga & Patik       | gemeinsam die dokumentation überarbeiten |
-##### Dokumentation fertigstellen
-
-| **Datum** | **Aufwand** | **Bearbeitet von** | **Beschreibung**                         |
-| --------- | ----------- | ------------------ | ---------------------------------------- |
+| 28.11.24  | 1h          | Kunga & Patik       | gemeinsam die dokumentation überarbeiten |
 | 28.11.24  | 1h          | Kunga & Patik       | Präsentations erstellen und einüben |
-
-
-#####
-=======
-| **Datum** | **Bearbeitet von** | **Aufwand** | **Beschreibung**                                        |
-| --------- | ------------------ | ----------- | ------------------------------------------------------- |
-| 27.11.24  | Kunga & Patrik     | 4h          | Präsentation als PowerPoint vorbereiten                 |
-| 28.11.24  | Kunga & Patrik     | 2h          | Nochmal kurz die Präsentation sowie prüfen ob alles funktioniert  |
->>>>>>> 6de4cee72c712ea71b317a3db39410d115fa68e3
 
 ## Backend
 
@@ -265,7 +272,6 @@ Für das Backend wurden Unit-Tests durchgeführt, um die Funktionalität von der
 
 #### 1. Registrierung eines neuen Benutzers
 
-<<<<<<< HEAD
 - **Testziel**: Sicherstellen, dass Benutzer sich erfolgreich registrieren können.
 - **Vorgehensweise**: Ein neuer Benutzer öffnet die Registrierungsseite, füllt alle erforderlichen Felder (Benutzername, Passwort) korrekt aus und sendet das Formular ab.
 - **Erwartetes Ergebnis**: Der Benutzer erhält eine Erfolgsmeldung, dass die Registrierung erfolgreich war.
@@ -356,8 +362,6 @@ Administratoren haben die Möglichkeit, Benutzer zu sperren oder zu bannen. Dies
 
 Passwort-Sicherheit: Benutzerpasswörter werden mit einem sicheren Hashing-Algorithmus  verschlüsselt in der Datenbank gespeichert. Es ist zu keinem Zeitpunkt möglich, das Passwort im Klartext auszulesen.
 
-=======
->>>>>>> 6de4cee72c712ea71b317a3db39410d115fa68e3
 ## Auswertung
 
 ### Auswertung aus Sicht von Patrik
@@ -376,12 +380,10 @@ Rückblickend muss ich noch sehr viel über Frontend lernen. Besonders die Arbei
 | 22.11.2024 | 4 h         | Endpunkte erstellt um alle User anzuzeigen sowie User zu blocken | Falls genügend Zeit da wäre, könnte man die Funktion als Button hinzufügen welche nur als sichtbar für den Admin ist. Ausserdem sollte ich die Funktion des blocken anpassen, falls es bereits blockiert ist, dass es entblockt | Kunga      |
 |24.11.2024 | 4 h | Score Entity sowie Endpoints für die Applikation hinzugefügt | Ich hatte ziemliche Probleme den Score Entity im Nachhinein hinzuzufügen. Hier wäre es definitiv besser gewesen ein Datenmodell von Anfang an zu erstellen um ein besseren Überblick auf die Struktur zu haben. Ein Grund war wahrscheinlich weil die Mehrheit der Klassen implementiert worden ist vom Stoff während dem Unterricht. Bei der Implementierung habe ich es so gemacht dass man die scores adden kann in der Liste und der höchste Wert von score in der Liste wird dem highscore hinzugefügt. Ich war am überlegen ob ich eventuell den Wert direkt an highscore hinzufügen soll falls dieser höher ist, damit nicht eine riesige Liste entsteht. Schlussendlich habe ich mich dagegen entschieden aufgrund von, wie unser Dozent gesagt hat zu mir, analystischen gründen wie z.B wie viele Punkte hatte der User im Durchschnitt etc. Stattdessen gab ich dem scoreController einen DELETE endpoint zum löschen von scores und highscore des users. Dieser kann nur von einem admin zugegriffen werden. | Kunga |
 | 25.11.2024 | 6 h         | Versuchen das Frontend mit dem Backen zu verknüpfen   | stendig nur fehlermeldung über fehlermeldung über fehlermeldung, nachdem ich den code stück für stück debbugt habbte mit controllbracke konnte ich dafon ausgehen das überall der richtige token und die richtige werte in den parameter sind aber der zugang blib mir verwert, habe auch versucht den /api/scores/add für alle erreichbar machen aber es wurde mir weiterhin mit der Fehlermeldung 401 den zugruif verweigert                                                                                                                                                                                                      | Patrik     |
-| 25.11.2024 | 3 h         | Userpfade prüfen                                   | habe versucht mithilfe von Insomnia ein Push befehl auszufühern ob ich wenigest so ein eintrag für den userScore eintragen kann aber es wahr weiterhin mit der fehlermeldung 401 versehen. Nach mehrfaches ausprobieren und auch ChatGpt fragen an was es liegen kann, habe ich es mit einer schmerzenden Faust aufgegeben.                                                                                                                                                                                              | Patrik     |
+| 25.11.2024 | 3 h         | Userpfade prüfen                                   | habe versucht mithilfe von Insomnia ein Push befehl auszufühern ob ich wenigest so ein eintrag für den userScore eintragen kann aber es wahr weiterhin mit der fehlermeldung 401 versehen. Nach mehrfaches ausprobieren und auch ChatGpt fragen an was es liegen kann, habe ich es mit einer schmerzenden Faust aufgegeben.                                                                                                                                                                                              |Patriik|25.11.2024 | 0.5 h | Die Block Funktion mit unblock erweitert | Dies war relativ einfach. Ich musste hier bei der betroffenen Funktion nur einen if/else statement setzen zum prüfen ob der user bereits blockiert ist oder nicht | Kunga |
+| 25.11.2024 | 0.5 h | Kommentare gesetzt für die Klassen | Keine Schwierigkeiten | Kunga | Patrik     |
 | 26.11.2024 | 2 h         | Frontend Test einbinden                                  | Habe mithilfe von ChatGPT zest erstellt für den Frontend, aber erfoglos, die test konnte ich nachdem ich weitere node_models heruntergeladen habe Ausführen, aber trozdem konte es irgenwie den Syntax nicht verstehen, somit habe ich beschlossen auch hier aufzugeben.                                                                                                                                                                                              | Patrik     |
-| 22.11.2024 | 1 h         | ReadMe nachtragen                                   | Meine erlebnisse im ReadMe für die Nachwelt festgehalten                                                                                                                                                                                               | Patrik     |
-
-|25.11.2024 | 0.5 h | Die Block Funktion mit unblock erweitert | Dies war relativ einfach. Ich musste hier bei der betroffenen Funktion nur einen if/else statement setzen zum prüfen ob der user bereits blockiert ist oder nicht | Kunga |
-| 25.11.2024 | 0.5 h | Kommentare gesetzt für die Klassen | Keine Schwierigkeiten | Kunga |
+| 26.11.2024 | 1 h         | ReadMe nachtragen                                   | Meine erlebnisse im ReadMe für die Nachwelt festgehalten                                                                                                                                                                                               | Patrik     |
 |26.11.2024 | 1 h | 2 Testfälle erstellt für Backend | Keine Schwierigkeiten | Kunga |
 |26.11.2024 | 1h | Backend Sektion im README.md vervollständigt | Ich war mir persönlich nicht sicher ob ich genügend Informationen geschrieben habe für die Sektion Backend. | Kunga |
 
