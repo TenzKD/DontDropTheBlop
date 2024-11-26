@@ -9,6 +9,12 @@ import m223.project.dont_drop_the_blop.model.ERole;
 import m223.project.dont_drop_the_blop.model.Role;
 import m223.project.dont_drop_the_blop.repositories.RoleRepository;
 
+/**
+ * Main entry point for the Spring Boot application.
+ * - Implements CommandLineRunner to initialize roles (USER and ADMIN) in the
+ * database if they don't exist.
+ * - Runs the application and performs role initialization on startup.
+ */
 @SpringBootApplication
 public class DontDropTheBlopApplication implements CommandLineRunner {
 

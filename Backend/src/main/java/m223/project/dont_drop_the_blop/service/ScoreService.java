@@ -1,8 +1,6 @@
 package m223.project.dont_drop_the_blop.service;
 
 import java.util.List;
-import java.util.Set;
-import java.util.stream.Collectors;
 
 import org.springframework.stereotype.Service;
 
@@ -12,6 +10,13 @@ import m223.project.dont_drop_the_blop.model.User;
 import m223.project.dont_drop_the_blop.repositories.ScoreRepository;
 import m223.project.dont_drop_the_blop.repositories.UserRepository;
 
+/**
+ * Service class for managing user scores.
+ * - Provides methods to save a user's score, clear their scores, and retrieve
+ * the top 10 players by high score.
+ * - Saves the score for a user and updates their high score if necessary.
+ * - Clears all scores for a user and resets their high score to 0.
+ */
 @Service
 public class ScoreService {
     private final UserRepository userRepository;

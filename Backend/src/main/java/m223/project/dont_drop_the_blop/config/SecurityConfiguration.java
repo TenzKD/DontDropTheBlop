@@ -17,6 +17,13 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
 import org.springframework.web.servlet.config.annotation.CorsRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
+/**
+ * The Class SecurityConfigurations is responsible für setting up security
+ * features for the application.
+ * The main tasks are authentication users, verifying their roles and checking
+ * which one is accessible based on role.
+ * 
+ */
 @Configuration
 public class SecurityConfiguration {
   @Autowired
@@ -26,7 +33,6 @@ public class SecurityConfiguration {
 
   private static final String[] EVERYONE = { "/", "/api/auth/*", "/api/scores/top10","/api/scores/add" };
   private final static String[] SECURE = { "/private/*", "/api/scores/clear" };
-  private final static String[] ROLES = { "ADMIN" };
 
   @Bean
   public AuthTokenFilter authenticationJwtTokenFilter() {
@@ -62,6 +68,13 @@ public class SecurityConfiguration {
     return new BCryptPasswordEncoder();
   }
 
+  /**
+   * Defines endpoint access rules for public, admin, and authenticated users.
+   * 
+   * @param http
+   * @return
+   * @throws Exception
+   */
   @Bean
   public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
     http.csrf(csrf -> csrf.disable()).cors(Customizer.withDefaults())

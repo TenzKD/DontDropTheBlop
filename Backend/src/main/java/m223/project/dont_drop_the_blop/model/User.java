@@ -21,6 +21,14 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+/**
+ * Represents a user in the system.
+ * - Contains user details like username, password, blocked status, high score,
+ * and roles.
+ * - Has a relationship with the entities Score and Role
+ * - Initializes the high score to 0 by default.
+ * - Includes a constructor to set username, password, and high score.
+ */
 @Entity
 @Setter
 @Getter

@@ -30,6 +30,14 @@ import m223.project.dont_drop_the_blop.model.User;
 import m223.project.dont_drop_the_blop.repositories.RoleRepository;
 import m223.project.dont_drop_the_blop.repositories.UserRepository;
 
+/**
+ * Functions main task is to create an endpoint for new users to register and
+ * already registered users to login
+ * For the login enpoint it also checks if the user is blocked by the admin if
+ * so they can't login anymore until unblocked.
+ * It also checks if the username is already taken to make sure every user has a
+ * unique name
+ */
 @CrossOrigin(origins = "*", maxAge = 3600)
 @RestController
 @RequestMapping("/api/auth")
@@ -52,10 +60,11 @@ public class AuthController {
   @PostMapping("/login")
   public ResponseEntity<?> authenticateUser(@Valid @RequestBody LoginRequest loginRequest) {
 
-    //Check if User is blocked
-    User user = userRepository.findByUsername(loginRequest.getUsername()).orElseThrow(() -> new RuntimeException("Error: User not found"));
+    // Check if User is blocked
+    User user = userRepository.findByUsername(loginRequest.getUsername())
+        .orElseThrow(() -> new RuntimeException("Error: User not found"));
 
-    if(user.isBlocked()) {
+    if (user.isBlocked()) {
       return ResponseEntity.badRequest().body("Error: User is blocked and cannot log in.");
     }
 
@@ -86,11 +95,10 @@ public class AuthController {
     }
 
     // Create new user's account
-    User user = new User(signUpRequest.getUsername(), encoder.encode(signUpRequest.getPassword()),0);
+    User user = new User(signUpRequest.getUsername(), encoder.encode(signUpRequest.getPassword()), 0);
     user.setBlocked(false);
 
-
-    //ASSIGN DEFAULT ROLE ROLE_USER
+    // ASSIGN DEFAULT ROLE ROLE_USER
     Role userRole = roleRepository.findByName(ERole.ROLE_USER)
         .orElseThrow(() -> new RuntimeException("Error: Role is not found."));
     Set<Role> roles = new HashSet<>();

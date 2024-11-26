@@ -11,6 +11,11 @@ import jakarta.persistence.ManyToOne;
 import lombok.Getter;
 import lombok.Setter;
 
+/**
+ * Represents a score associated with a user.
+ * - Contains an ID, score value, and a reference to the associated user.
+ * - Initializes the score value to 0 by default.
+ */
 @Entity
 @Getter
 @Setter

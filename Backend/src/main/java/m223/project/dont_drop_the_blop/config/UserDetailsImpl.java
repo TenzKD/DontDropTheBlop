@@ -13,7 +13,12 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import m223.project.dont_drop_the_blop.model.User;
 
-
+/**
+ * Represents user information needed by Spring Security.
+ * - Stores details like ID, username, score, password, and roles.
+ * - Provides a method to create an instance from a User object.
+ * - Implements methods to check account status and credentials.
+ */
 public class UserDetailsImpl implements UserDetails {
   private static final long serialVersionUID = 1L;
 
@@ -41,7 +46,7 @@ public class UserDetailsImpl implements UserDetails {
         .collect(Collectors.toList());
 
     return new UserDetailsImpl(
-        (long)user.getId(),
+        (long) user.getId(),
         user.getUsername(),
         user.getHighScore(),
         user.getPassword(),
@@ -53,32 +58,50 @@ public class UserDetailsImpl implements UserDetails {
     return authorities;
   }
 
-  public Long getId() {  return id;   }
+  public Long getId() {
+    return id;
+  }
 
-  public int getScore() {  return score;   }
-
-  @Override
-  public String getPassword() {  return password;  }
-
-  @Override
-  public String getUsername() { return username;  }
+  public int getScore() {
+    return score;
+  }
 
   @Override
-  public boolean isAccountNonExpired() { return true;   }
+  public String getPassword() {
+    return password;
+  }
 
   @Override
-  public boolean isAccountNonLocked() { return true;   }
+  public String getUsername() {
+    return username;
+  }
 
   @Override
-  public boolean isCredentialsNonExpired() {  return true;   }
+  public boolean isAccountNonExpired() {
+    return true;
+  }
 
   @Override
-  public boolean isEnabled() {   return true;   }
+  public boolean isAccountNonLocked() {
+    return true;
+  }
+
+  @Override
+  public boolean isCredentialsNonExpired() {
+    return true;
+  }
+
+  @Override
+  public boolean isEnabled() {
+    return true;
+  }
 
   @Override
   public boolean equals(Object o) {
-    if (this == o) return true;
-    if (o == null || getClass() != o.getClass()) return false;
+    if (this == o)
+      return true;
+    if (o == null || getClass() != o.getClass())
+      return false;
     UserDetailsImpl user = (UserDetailsImpl) o;
     return Objects.equals(id, user.id);
   }
