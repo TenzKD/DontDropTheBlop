@@ -265,7 +265,7 @@ Für das Backend wurden Unit-Tests durchgeführt, um die Funktionalität von der
 
 #### 1. Registrierung eines neuen Benutzers
 
-<<<<<<< HEAD
+
 - **Testziel**: Sicherstellen, dass Benutzer sich erfolgreich registrieren können.
 - **Vorgehensweise**: Ein neuer Benutzer öffnet die Registrierungsseite, füllt alle erforderlichen Felder (Benutzername, Passwort) korrekt aus und sendet das Formular ab.
 - **Erwartetes Ergebnis**: Der Benutzer erhält eine Erfolgsmeldung, dass die Registrierung erfolgreich war.
@@ -356,8 +356,7 @@ Administratoren haben die Möglichkeit, Benutzer zu sperren oder zu bannen. Dies
 
 Passwort-Sicherheit: Benutzerpasswörter werden mit einem sicheren Hashing-Algorithmus  verschlüsselt in der Datenbank gespeichert. Es ist zu keinem Zeitpunkt möglich, das Passwort im Klartext auszulesen.
 
-=======
->>>>>>> 6de4cee72c712ea71b317a3db39410d115fa68e3
+
 ## Auswertung
 
 ### Auswertung aus Sicht von Patrik
