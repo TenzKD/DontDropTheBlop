@@ -392,6 +392,7 @@ Rückblickend muss ich noch sehr viel über Frontend lernen. Besonders die Arbei
 |26.11.2024 | 1 h | 2 Testfälle erstellt für Backend | Keine Schwierigkeiten | Kunga |
 |26.11.2024 | 1h | Backend Sektion im README.md vervollständigt | Ich war mir persönlich nicht sicher ob ich genügend Informationen geschrieben habe für die Sektion Backend. | Kunga |
 | 26.11.2024 | 0.5 h | Fehler im Frontend behoben / geprüft | Beim Fehler im Frontend handelte es sich um einen Tippfehler welche angepasst wurde damit es mit dem Backend verknüpft. Die User lokal werden korrekt angezeigt mit Usernamen und Passwort und das Spiel speichert den Score nach einem Game Over. | Kunga|
+| 27.11.2024 | 3 h | Der Grund gefunden weshalb der Player nach einer gewissen Zeit automatisch Game Over erreicht | Der Grund weshalb der Fehler passiert ist, die Position des Players addiert player.y addiert sich mit dy welche die Gravitation darstellt und der if statement für das gameOver besagt, falls der player.y + player.height grösser ist als canvas.height wird der game Over aktiviert. Da die position des players jedoch mit jedem Sprung sich sehr schnell vergrössert akzeptiert es die if statement irgendwann und die position y kann man leider nicht resetten, da dies sonst die Position der Figur während dem Spiel ändert. Ohne die grundlegende Struktur des Spiels zu ändern kann ich das Problem nicht lösen. Ich habe hierzu Patrik gefragt ob er eventuell das Problem lösen kann. | Kunga |
 
 
 ## Hilfestellungen
