@@ -1,6 +1,6 @@
-import AuthService from './services/auth.serviece';
-import axios from 'axios';
-import playerImageSrc from './assets/Blooby.png';
+import AuthService from "./services/auth.serviece";
+import axios from "axios";
+import playerImageSrc from "./assets/Blooby.png";
 
 let gameRunning = false;
 let score = 0;
@@ -14,20 +14,23 @@ function gameOver() {
     const savedScore = currentUser.score || 0;
     if (score > savedScore) {
       // Hole die Benutzer-ID und den Score
-      const userId = currentUser.id;  // Stelle sicher, dass `id` im `currentUser`-Objekt gespeichert ist
+      const userId = currentUser.id; // Stelle sicher, dass `id` im `currentUser`-Objekt gespeichert ist
       const token = currentUser.token;
-      axios.post('http://localhost:8080/api/scores/add', {
-          userId: userId,
-          score: score
-          
-        }, {
-          
-          headers: {
-            'Content-Type': 'application/json',
-            'Authorization': `Bearer ${token}`
+      axios
+        .post(
+          "http://localhost:8080/api/scores/add",
+          {
+            userId: userId,
+            score: score,
+          },
+          {
+            headers: {
+              "Content-Type": "application/json",
+              Authorization: `Bearer ${token}`,
+            },
           }
-        })
-        
+        )
+
         .then((response) => {
           console.log("Score erfolgreich gespeichert");
           // Aktualisiere den gespeicherten Score im lokalen Speicher
@@ -38,7 +41,9 @@ function gameOver() {
           console.error("Fehler beim Speichern des Scores", error);
         });
     } else {
-      console.log("Aktueller Score ist nicht höher als der gespeicherte Score, kein Update erforderlich");
+      console.log(
+        "Aktueller Score ist nicht höher als der gespeicherte Score, kein Update erforderlich"
+      );
     }
   }
 }
@@ -50,7 +55,6 @@ export default function initializeGame() {
   const resetButton = document.getElementById("resetButton");
   const scoreElement = document.getElementById("score");
 
-  
   let platformSpeed = 1;
   let lastFrameTime = 0;
   const fpsInterval = 1000 / 120;
@@ -76,41 +80,55 @@ export default function initializeGame() {
     for (let i = 0; i < platformCount; i++) {
       const x = Math.random() * (canvas.width - platformWidth);
       const y = i * (canvas.height / platformCount);
-      platforms.push({ x, y, width: platformWidth, height: platformHeight, touched: false });
+      platforms.push({
+        x,
+        y,
+        width: platformWidth,
+        height: platformHeight,
+        touched: false,
+      });
     }
     player.y = platforms[0].y - player.height;
-    player.x = platforms[0].x + (platformWidth / 2) - (player.width / 2);
+    player.x = platforms[0].x + platformWidth / 2 - player.width / 2;
   }
 
+  // Spieler-Bild erstellen und Quelle setzen
+  const playerImage = new Image();
+  playerImage.src = playerImageSrc;
 
-// Spieler-Bild erstellen und Quelle setzen
-const playerImage = new Image();
-playerImage.src = playerImageSrc;
+  // Verwende ein Flag, um zu überprüfen, ob das Bild geladen wurde
+  let playerImageLoaded = false;
 
-// Verwende ein Flag, um zu überprüfen, ob das Bild geladen wurde
-let playerImageLoaded = false;
+  playerImage.onload = function () {
+    playerImageLoaded = true;
+    console.log("Player Image erfolgreich geladen");
+  };
 
-playerImage.onload = function () {
-  playerImageLoaded = true;
-  console.log("Player Image erfolgreich geladen");
-};
+  playerImage.onerror = function () {
+    console.error(
+      "Fehler beim Laden des Player-Images. Überprüfe den Pfad:",
+      playerImage.src
+    );
+  };
 
-playerImage.onerror = function () {
-  console.error("Fehler beim Laden des Player-Images. Überprüfe den Pfad:", playerImage.src);
-};
-
-function drawPlayer() {
-  if (playerImageLoaded) {
-    ctx.drawImage(playerImage, player.x, player.y, player.width, player.height);
-  } else {
-    ctx.fillStyle = "#FF6347";
-    ctx.fillRect(player.x, player.y, player.width, player.height);
+  function drawPlayer() {
+    if (playerImageLoaded) {
+      ctx.drawImage(
+        playerImage,
+        player.x,
+        player.y,
+        player.width,
+        player.height
+      );
+    } else {
+      ctx.fillStyle = "#FF6347";
+      ctx.fillRect(player.x, player.y, player.width, player.height);
+    }
   }
-}
 
   function drawPlatforms() {
     ctx.fillStyle = "#228B22";
-    platforms.forEach(platform => {
+    platforms.forEach((platform) => {
       ctx.fillRect(platform.x, platform.y, platform.width, platform.height);
     });
   }
@@ -121,13 +139,14 @@ function drawPlayer() {
     player.x += player.speed;
 
     if (player.x < 0) player.x = 0;
-    if (player.x + player.width > canvas.width) player.x = canvas.width - player.width;
+    if (player.x + player.width > canvas.width)
+      player.x = canvas.width - player.width;
 
     if (player.y + player.height > canvas.height) {
       gameOver();
     }
 
-    platforms.forEach(platform => {
+    platforms.forEach((platform) => {
       if (
         player.y + player.height >= platform.y &&
         player.y + player.height <= platform.y + platform.height &&
@@ -150,7 +169,7 @@ function drawPlayer() {
   }
 
   function updatePlatforms() {
-    platforms.forEach(platform => {
+    platforms.forEach((platform) => {
       platform.y += platformSpeed;
       if (platform.y > canvas.height) {
         platform.y = 0;
@@ -206,7 +225,7 @@ function drawPlayer() {
     resetButton.addEventListener("click", resetGame);
   }
 
-  document.addEventListener("keydown", e => {
+  document.addEventListener("keydown", (e) => {
     if (e.key === "ArrowLeft") {
       player.speed = -4;
     }
@@ -215,7 +234,7 @@ function drawPlayer() {
     }
   });
 
-  document.addEventListener("keyup", e => {
+  document.addEventListener("keyup", (e) => {
     if (e.key === "ArrowLeft" || e.key === "ArrowRight") {
       player.speed = 0;
     }
