@@ -323,8 +323,8 @@ Für das Backend wurden Unit-Tests durchgeführt, um die Funktionalität von der
 | 2            | Anmeldung eines registrierten Benutzers | Erfolgreich  | Token wurde korrekt ausgegeben    |
 | 3            | Starten des Spiels                      | Erfolgreich  | Spiel startete ordnungsgemäß      |
 | 4            | Spielfluss und Spielverhalten           | Fehlgeschlagen  | Spiel löst gameOver aus obwohl der trigger nicht ausgelöst wurde        |
-| 5            | Speichern des Scores nach Spielende     | Fehlgeschlagen  | zugrif verweigert |
-| 6            | Anzeige der Highscore-Liste             | Fehlgeschlagen  | zugrif verweigertt |
+| 5            | Speichern des Scores nach Spielende     | Erfolgreich  | Der Score wird ordnungsgemäss abgespeichert |
+| 6            | Anzeige der Highscore-Liste             | Erfolgreich  | Der höchste Score wird als Highscore für den User auf der Liste angezeigt falls er in der Top 10 ist. |
 
 
 ## Sicherheitskonzept für die Spielanwendung "Dont Drop The Blop"
@@ -391,6 +391,8 @@ Rückblickend muss ich noch sehr viel über Frontend lernen. Besonders die Arbei
 | 26.11.2024 | 1 h         | ReadMe nachtragen                                   | Meine erlebnisse im ReadMe für die Nachwelt festgehalten                                                                                                                                                                                               | Patrik     |
 |26.11.2024 | 1 h | 2 Testfälle erstellt für Backend | Keine Schwierigkeiten | Kunga |
 |26.11.2024 | 1h | Backend Sektion im README.md vervollständigt | Ich war mir persönlich nicht sicher ob ich genügend Informationen geschrieben habe für die Sektion Backend. | Kunga |
+| 26.11.2024 | 0.5 h | Fehler im Frontend behoben / geprüft | Beim Fehler im Frontend handelte es sich um einen Tippfehler welche angepasst wurde damit es mit dem Backend verknüpft. Die User lokal werden korrekt angezeigt mit Usernamen und Passwort und das Spiel speichert den Score nach einem Game Over. | Kunga|
+
 
 ## Hilfestellungen
 
