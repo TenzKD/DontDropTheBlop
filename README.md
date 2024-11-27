@@ -17,6 +17,15 @@
     - [Automatisierte Test einbinden](#automatisierte-test-einbinden)
     - [Deployment](#deployment)
     - [Dokumentation fertigstellen](#dokumentation-fertigstellen)
+  - [Installationsanleitung](#installationsanleitung)
+    - [Voraussetzungen](#voraussetzungen)
+    - [Repository klonen](#repository-klonen)
+    - [Docker compose file starten](#docker-compose-file-starten)
+    - [mit mysql verbinden](#mit-mysql-verbinden)
+    - [Datenbank auswählen](#datenbank-auswählen)
+    - [Admin User erstellen](#admin-user-erstellen)
+    - [Backend einrichten](#backend-einrichten)
+    - [Frontend einrichten](#frontend-einrichten)
   - [Backend](#backend)
     - [Architektur](#architektur)
       - [Hauptkomponenten](#hauptkomponenten)
@@ -51,6 +60,7 @@
     - [6. Datensicherheit](#6-datensicherheit)
   - [Auswertung](#auswertung)
     - [Auswertung aus Sicht von Patrik](#auswertung-aus-sicht-von-patrik)
+    - [Auswertung aus Sicht von Kunga](#auswertung-aus-sicht-von-kunga)
     - [Arbeitsjournal](#arbeitsjournal)
   - [Hilfestellungen](#hilfestellungen)
 
@@ -166,6 +176,72 @@ Folgende User Storys haben wir erstellt in Anbetracht unserer Idee inklusive Akz
 | --------- | ----------- | ------------------ | ---------------------------------------- |
 | 28.11.24  | 1h          | Kunga & Patik       | gemeinsam die dokumentation überarbeiten |
 | 28.11.24  | 1h          | Kunga & Patik       | Präsentations erstellen und einüben |
+
+## Installationsanleitung
+
+### Voraussetzungen
+
+- Java (mind. Version 17) und Maven installiert
+- Insomnia für API-Tests installiert und läuft
+- GitHub Account
+- Node.js
+- Docker und Docker Compose
+- (Optional) Docker Desktop
+
+### Repository klonen
+
+```bash
+git clone https://github.com/TenzKD/DontDropTheBlop.git
+cd DontDropTheBlop
+```
+
+### Docker compose file starten
+```bash
+docker-compose up -d
+```
+<p>Verbinde dich zur Datenbank und erstelle den Admin-Benutzer (siehe unten).</p>
+
+### mit mysql verbinden
+
+```bash
+docker exec -it mysql-db mysql -u demo -p demo
+```
+
+### Datenbank auswählen
+
+```sql
+use demo;
+```
+
+### Admin User erstellen
+
+```sql
+INSERT INTO user (id, high_score, is_blocked, password, username)
+VALUES (1, 0, 0x00, 'yourPassword', 'yourname');
+
+INSERT INTO user_role (user_id, role_id)
+VALUES (1, 2);
+```
+
+### Backend einrichten
+
+Im Backend Verzeichnis /Backend
+```bash
+mvn clean install
+mvn spring-boot:run
+```
+
+### Frontend einrichten
+Im Frontendverzeichnis /Frontend
+```bash
+npm install -g create-vite
+npm install
+npm run dev
+```
+
+
+
+
 
 ## Backend
 
@@ -371,6 +447,11 @@ Passwort-Sicherheit: Benutzerpasswörter werden mit einem sicheren Hashing-Algor
 ### Auswertung aus Sicht von Patrik
 
 Rückblickend muss ich noch sehr viel über Frontend lernen. Besonders die Arbeit mit Tokens hat mich komplett überfordert. Am Anfang habe ich zu viel Zeit in das Programmieren des Spiels verbrannt, wodurch mir die Zeit für die Planung und Implementierung anderer wichtiger Teile fehlte. Die Planung war zu oberflächig und nicht gut durchgesprochen, was sich im Verlauf des Projekts als Problem herausgestellt hat. Die Kommunikation im Team war ebenfalls nicht ausreichend und hat starkes Entwicklungspotential. Dank meinem großzügigen Chef, der es versteht, dass schulische Projekte hohe Priorität besitzen, konnte ich Montag freinehmen. Im Verlauf von Montag ist mir jedoch aufgefallen, dass die Zeit nicht reicht, und er hat mir auch Dienstag frei gegeben. Obwohl ich so viel Zeit hatte, bin ich dennoch sehr enttäuscht von dem Ergebnis. Die Idee, ein eigenes Minispiel mit Highscore zu erstellen, hat mich zunächst sehr motiviert, aber die ganzen Hürden und Fehlermeldungen haben mich schließlich moralisch gebrochen, und ich möchte nichts mehr damit zu tun haben. 
+
+
+### Auswertung aus Sicht von Kunga
+
+Es war ein spannendes Projekt, vor allem dass ich es aus der Sicht vom Backend sehen konnte in welche ich noch nicht so viel Erfahrung habe. Es wäre meiner Meinung nach definitiv besser gewesen, wenn das Modul parallel zum anderen Thema laufe würde, damit wir schlussendlich mehr Zeit haben den ganzen Code den wir implementieren mussten zu verstehen. Dadurch dass wir alles in einem Stück durchnahmen haben wir sehr viele Informationen in sehr kurzer Zeit aufgenommen. Ich bin nicht ganz zuversichtlich, dass ich den gesamten Backend Code verstehe und brauche definitiv mehrere Projekte dieser Art damit ich selbstsicherer bin. Das schwierigste im Backend für mich war es die Score Entität nachträglich im bereits erstellten Code hinzuzufügen. Ich musste den Attribut score von der Klasse User zu einer eigenständigen Entität umwandeln. Hier war es wie ich oben bereits im Journal geschrieben habe einfacher gewesen, wenn man zuerst ein Diagramm erstellt hätte. Aufgrund der Implementierung des Codes von der Schule hätte es dies jedoch erschwert. Bei einem Projekt welche man von null auf beginnt hätte ich es definitiv mit einem Diagramm gemacht. Die Zeit an sich hat gerade noch knapp gereicht um ein reibungsloses Spielerlebnis zu gewährleisten.
 
 ### Arbeitsjournal
 
