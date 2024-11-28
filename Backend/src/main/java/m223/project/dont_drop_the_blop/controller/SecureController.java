@@ -17,7 +17,8 @@ import m223.project.dont_drop_the_blop.repositories.UserRepository;
 /**
  * This Controller main function gives endpoints to show all users and to
  * block/unblock users based on their username. instead of userid for easier
- * blocking. Those endpoints below should only be able to access by role admin
+ * blocking. Those endpoints below should only be able to access by role admin.
+ * With the Transactional Annotation I want to make sure that it doesnt get halfwayed with the blocking of a user. Either he couldnt get blocked or is blocked.
  */
 @RestController
 @RequestMapping("/private")
