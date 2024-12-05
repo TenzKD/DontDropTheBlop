@@ -23,7 +23,7 @@ function App() {
   const handleShowRegister = () => {
     setShowLogin(false);
   };
-
+//sneaky hidden comment
   const handleLogin = () => {
     setIsAuthenticated(true);
   };
